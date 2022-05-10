@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router";
 import { useState } from "react";
 import "./App.css";  
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import Register from "./Pages/Register/Register";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                 <Route path ="/settings" element={<Settings />}/> 
             </Route>
             <Route path ="/login" element={<Login />}/> 
+            <Route path ="/register" element={<Register />}/> 
         </Routes>
     );
 }
