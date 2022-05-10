@@ -9,7 +9,7 @@ import "./App.css";
 
 
 function App() {
-    const [user, setUser] =useState(null);
+    const [user, setUser] =useState("");
     return (
         <Routes>
             <Route path ='/' element={<Home user = {user}/>}/> 
