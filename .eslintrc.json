@@ -12,7 +12,7 @@
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": "latest",
+        "ecmaVersion": 6,
         "sourceType": "module"
     },
     "plugins": [
@@ -25,7 +25,7 @@
         ],
         "linebreak-style": [
             "error",
-            "unix"
+            "windows"
         ],
         "quotes": [
             "error",
@@ -35,6 +35,9 @@
             "error",
             "always"
         ],
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "no-unused-vars": "off" 
     }
 }
+
