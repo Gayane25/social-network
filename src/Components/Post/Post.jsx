@@ -7,6 +7,7 @@ import ProfilePic from "./PostCreator/ProfilePic";
 import ProfileName from "./PostCreator/ProfileName";
 import CreateDate from "./PostCreator/CreateDate";
 import moreIcon from "../../Assets/ellipsis-solid.svg";
+import PostContent from "./PostContent/PostContent";
 
 
 const StyledPost = styled.div`
@@ -29,7 +30,10 @@ function Post(props) {
                 </Flex>
                 <Icon src={moreIcon}/>
             </Flex>
-            
+            <PostContent />
+            <Flex>
+                
+            </Flex>
         </Flex>
     </StyledPost>;
 }
