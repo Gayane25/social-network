@@ -10,7 +10,8 @@ border:none;
 border-radius:5px;
 align-items:center;
 text-align:center;
-margin:10px;
+padding:8px;
+margin:5px;
 `;
 
 function PostContent(props) {
