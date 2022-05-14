@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 
 const StyledProfileName = styled.h2`
@@ -6,9 +7,13 @@ font-size:${props=>props.font || "16px"};
 color:${props=>props.color || "black"};
 padding:${props=>props.padding || "0"}`;
 
-
-export default function ProfileName(props) {
+ProfileName.propTypes ={
+    postItem: PropTypes.object,
+};
+export default function ProfileName({postItem}) {
     return (
-        <StyledProfileName {...props}/>
+        <StyledProfileName>
+            {postItem.owner}
+        </StyledProfileName>
     );
 }

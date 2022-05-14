@@ -12,7 +12,7 @@ width:inherit;
 `;
 
 function Flex(props) {
-    return <StyledFlex {...props} />;
+    return <StyledFlex {...props}/>;
 
 }
 export default Flex;
