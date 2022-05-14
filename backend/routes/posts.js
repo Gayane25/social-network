@@ -5,19 +5,19 @@ router.get('/',(req,res)=>{
     res.send('welcome po posts')
 })
 
-router.post('/create', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        const {userId, title, description, image} = req.body
+        const {userId, content_title, content_description, content_image_url} = req.body
         const post = await new Post({
             owner: userId,
             content: {
-                title: title,
-                description: description,
-                image: image
+                title: content_title,
+                description: content_description,
+                image: content_image_url
             },
         })
-        await post.save()
-        res.send('Your post was successfully added')
+        const addedPOst  = await post.save().then(data => data)
+        res.send(addedPOst)
     } catch (err) {
         res.send('Check Your data and try again')
     }
