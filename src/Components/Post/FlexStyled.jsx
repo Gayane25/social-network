@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledFlex = styled.div`
+const FlexStyled = styled.div`
 display:flex;
 flex-direction: ${props=>props.direction||"row"};
 align-items: ${props=>props.align || "stretch"};
@@ -11,8 +11,5 @@ flex-wrap:${props=>props.wrap || "no-wrap"};
 width:inherit;
 `;
 
-function Flex(props) {
-    return <StyledFlex {...props}/>;
 
-}
-export default Flex;
+export default FlexStyled;

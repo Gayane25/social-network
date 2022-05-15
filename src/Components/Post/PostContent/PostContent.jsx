@@ -1,9 +1,7 @@
-import React from "react";
-import styled from "styled-components";
 import PostDescription from "./PostDescription";
 import PostTitle from "./PostTitle";
+import {PostContentStyled} from "./PostContentStyled";
 import PropTypes from "prop-types";
-import {StyledPostContent} from "./postContetStyled";
 
 
 PostContent.propTypes ={
@@ -11,10 +9,10 @@ PostContent.propTypes ={
 };
 
 function PostContent({postItem}) {
-    return <StyledPostContent>
+    return <PostContentStyled>
         <PostTitle postItem={postItem}/>
         <PostDescription postItem={postItem}/>
-    </StyledPostContent>;
+    </PostContentStyled>;
 }
 
 export default PostContent;

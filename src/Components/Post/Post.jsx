@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import Flex from "./Flex";
+import FlexStyled from "./FlexStyled";
+import { PostStyled } from "./PostStyled";
 import Icon from "./Icon";
 import profPic from "../../Assets/robotPic.png";
 import ProfilePic from "./PostCreator/ProfilePic";
@@ -9,6 +9,7 @@ import CreateDate from "./PostCreator/CreateDate";
 import {likeIcon,  moreIcon, commentIcon, shareIcon} from "../../Assets/svg/index.js";
 import PostContent from "./PostContent/PostContent";
 
+
 import InputBar from "./AfterContentBar/InputBar";
 import PropTypes from "prop-types";
 
@@ -16,37 +17,23 @@ Post.propTypes = {
     postItem: PropTypes.object,
 };
 
-
-const StyledPost = styled.div`
-max-width:500px;
-border:1px solid gray;
-border-radius:10px;
-border:none;
-background-color:#e9ecf0;
-margin-top:25px;
-span {
-    margin:5px;
-};
-`;
-
-
 function Post({postItem}) {
     return (
-        <StyledPost >
-            <Flex direction ="column">
-                <Flex padding="10px" justify="space-between">
-                    <Flex>
+        <PostStyled >
+            <FlexStyled direction ="column">
+                <FlexStyled padding="10px" justify="space-between">
+                    <FlexStyled>
                         <ProfilePic src ={profPic}/>
-                        <Flex direction="column">
+                        <FlexStyled direction="column">
                             <ProfileName padding="3px" postItem = {postItem}/>
                             <CreateDate color="black">9min ago</CreateDate>
-                        </Flex>
-                    </Flex>
+                        </FlexStyled>
+                    </FlexStyled>
                     <Icon src={moreIcon}/>
-                </Flex>
+                </FlexStyled>
                 <PostContent postItem={postItem} />
 
-                <Flex margin="3px" justify="space-between">
+                <FlexStyled margin="3px" justify="space-between">
                     <span>
                         <Icon src={likeIcon}/> Like 
                     </span>
@@ -57,13 +44,13 @@ function Post({postItem}) {
                         <Icon src={shareIcon}/> Share
                     </span>
 
-                </Flex>
-                <Flex justify="space-between" padding="5px">
+                </FlexStyled>
+                <FlexStyled justify="space-between" padding="5px">
                     <InputBar />
-                </Flex>
+                </FlexStyled>
                 
-            </Flex>
-        </StyledPost>
+            </FlexStyled>
+        </PostStyled>
     );
 }
 

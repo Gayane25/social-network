@@ -1,19 +1,14 @@
 import React from "react";
-import styled from "styled-components";
 import PropTypes from "prop-types";
-
-const StyledPostDescription = styled.p`
-font-size: ${props=>props.font || "16px"}
-color: ${props=>props.color || "black"}
-`;
+import PostDescriptionStyled from "./PostDescriptionStyled";
 
 PostDescription.propTypes ={
     postItem: PropTypes.object,
 };
 function PostDescription({postItem}) {
-    return <StyledPostDescription>
+    return <PostDescriptionStyled>
         {postItem.content.description}
-    </StyledPostDescription>;
+    </PostDescriptionStyled>;
 
     
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const StyledPostContent = styled.div`
+export const PostContentStyled = styled.div`
 border:1px solid gray;
 background-color:white;
 border:none;
