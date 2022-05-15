@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledInput = styled.div`
+const InputBarStyled = styled.div`
 width:100%;
 
 input {
@@ -17,4 +17,4 @@ margin-right:10px;
 
 `;
 
-export default StyledInput;
+export default InputBarStyled;

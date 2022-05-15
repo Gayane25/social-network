@@ -10,7 +10,7 @@ import {likeIcon,  moreIcon, commentIcon, shareIcon} from "../../Assets/svg/inde
 import PostContent from "./PostContent/PostContent";
 
 
-import InputBar from "./AfterContentBar/InputBar";
+import InputBar from "./Comments/CommentBar";
 import PropTypes from "prop-types";
 
 Post.propTypes = {
