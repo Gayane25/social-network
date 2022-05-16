@@ -4,10 +4,14 @@ import { addComment } from "../../../redux/postSlice";
 import AddCommentFormStyled from "./AddCommentFormStyled";
 import Icon from "../Icon";
 import {sendIcon} from "../../../Assets/svg/index.js";
+import PropTypes from "prop-types";
+
+AddCommentForm.propTypes = {
+    singlePost:PropTypes.object,
+};
 
 
-
-function AddCommentForm() {
+function AddCommentForm({singlePost}) {
     const [value, setValue] = useState("");
     const dispatch =useDispatch();
 
@@ -16,6 +20,7 @@ function AddCommentForm() {
         dispatch(
             addComment({
                 commentContent: value,
+                
             })
         );
 
@@ -25,7 +30,7 @@ function AddCommentForm() {
             <AddCommentFormStyled>
                 <form onSubmit={onSubmit}>
                     <input type="text" placeholder="Add comment..." value ={value} onChange ={(event)=>setValue(event.target.value)} name="commentInput"/>
-                    <Icon src={sendIcon} onSubmit ={onSubmit} />
+                    <Icon src={sendIcon} />
                 </form>
             </AddCommentFormStyled>
         </>

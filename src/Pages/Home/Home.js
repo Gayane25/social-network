@@ -7,7 +7,6 @@ import AddPostForm from "../../Components/Post/AddPostForm";
 
 function Home() {
     const myposts = useSelector((state)=>state.posts);
-    console.log(myposts);
     return <div>
         <h2>Home</h2>
         <Link to= "/messages">Messages</Link>

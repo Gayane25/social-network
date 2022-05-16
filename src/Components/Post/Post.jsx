@@ -55,7 +55,7 @@ function Post({singlePost}) {
 
                 </FlexStyled>
                 <FlexStyled justify="space-between" padding="5px">
-                    <CommentBar/>
+                    <CommentBar singlePost = {singlePost}/>
                 </FlexStyled>
                 
             </FlexStyled>

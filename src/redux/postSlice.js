@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { element } from "prop-types";
 
 const postSlice = createSlice({
     name:"posts",
@@ -42,13 +43,15 @@ const postSlice = createSlice({
             
         },
         addComment:(state, action)=>{
-            const newComment= {
+            // let index =  state.findIndex((element)=>element.id===action.payload.id);
+            const newComment = {
                 commentId:Math.random(),
                 commentContent:action.payload.commentContent,
                 like:false
             };
-            state.map((singlePost)=>singlePost.content.comments.push(newComment));
-           
+            // state[index].content.comments.push(newComment);
+            state.map(post=>post.content.comments.push(newComment));
+            
         },
         toggleLikeComment:(state,action )=>{
             const postIndex = state.findIndex((element)=>element.id===action.payload.id);

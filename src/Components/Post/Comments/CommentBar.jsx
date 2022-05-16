@@ -4,14 +4,18 @@ import profPic from "../../../Assets/robotPic.png";
 import AddCommentForm from "./AddCommentForm";
 import CommentsList from "./CommentsList";
 import FlexStyled from "../FlexStyled";
+import PropTypes from "prop-types";
+
+CommentBar.propTypes = {
+    singlePost:PropTypes.object,
+};
 
 
-
-function CommentBar() {
+function CommentBar({singlePost}) {
     return <FlexStyled>
         <ProfilePic src = {profPic} />
-        <AddCommentForm />
-        <CommentsList />
+        <AddCommentForm singlePost={singlePost} />
+        <CommentsList comments = {singlePost.content.comments} />
        
     </FlexStyled>;
 }
