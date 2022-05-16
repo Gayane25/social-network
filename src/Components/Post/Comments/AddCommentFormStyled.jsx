@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const InputBarStyled = styled.div`
+const AddCommentFormStyled = styled.div`
 width:100%;
 
 input {
@@ -17,4 +17,4 @@ margin-right:10px;
 
 `;
 
-export default InputBarStyled;
+export default AddCommentFormStyled;

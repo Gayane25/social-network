@@ -8,16 +8,16 @@ import ProfileName from "./PostCreator/ProfileName";
 import CreateDate from "./PostCreator/CreateDate";
 import {likeIcon,  moreIcon, commentIcon, shareIcon} from "../../Assets/svg/index.js";
 import PostContent from "./PostContent/PostContent";
-
-
-import InputBar from "./Comments/CommentBar";
 import PropTypes from "prop-types";
+import CommentBar from "./Comments/CommentBar";
 
 Post.propTypes = {
-    postItem: PropTypes.object,
+    singlePost: PropTypes.object,
 };
 
-function Post({postItem}) {
+
+function Post({singlePost}) {
+
     return (
         <PostStyled >
             <FlexStyled direction ="column">
@@ -25,13 +25,13 @@ function Post({postItem}) {
                     <FlexStyled>
                         <ProfilePic src ={profPic}/>
                         <FlexStyled direction="column">
-                            <ProfileName padding="3px" postItem = {postItem}/>
+                            <ProfileName padding="3px" name ={singlePost.owner}/>
                             <CreateDate color="black">9min ago</CreateDate>
                         </FlexStyled>
                     </FlexStyled>
                     <Icon src={moreIcon}/>
                 </FlexStyled>
-                <PostContent postItem={postItem} />
+                <PostContent content ={singlePost.content}/>
 
                 <FlexStyled margin="3px" justify="space-between">
                     <span>
@@ -46,7 +46,7 @@ function Post({postItem}) {
 
                 </FlexStyled>
                 <FlexStyled justify="space-between" padding="5px">
-                    <InputBar />
+                    <CommentBar/>
                 </FlexStyled>
                 
             </FlexStyled>

@@ -3,12 +3,12 @@ import {ProfileNameStyled} from "./ProfileNameStyled";
 
 
 ProfileName.propTypes ={
-    postItem: PropTypes.object,
+    name: PropTypes.string,
 };
-export default function ProfileName({postItem}) {
+export default function ProfileName({name}) {
     return (
         <ProfileNameStyled>
-            {postItem.owner}
+            {name}
         </ProfileNameStyled>
     );
 }

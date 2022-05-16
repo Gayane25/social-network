@@ -5,13 +5,13 @@ import PropTypes from "prop-types";
 
 
 PostContent.propTypes ={
-    postItem:PropTypes.object,
+    content:PropTypes.object,
 };
 
-function PostContent({postItem}) {
+function PostContent({content}) {
     return <PostContentStyled>
-        <PostTitle postItem={postItem}/>
-        <PostDescription postItem={postItem}/>
+        <PostTitle title={content.title}/>
+        <PostDescription description={content.description}/>
     </PostContentStyled>;
 }
 

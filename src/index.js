@@ -4,20 +4,19 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import styled, {createGlobalStyle} from "styled-components";
+import store from "./redux/store";
+import {Provider} from "react-redux";
+import "./index.css";
 
-const Global = createGlobalStyle`
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}`;
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <Global />
-            <App />
+            <Provider store ={store}>
+                <App />
+            </Provider>
         </BrowserRouter>
     </React.StrictMode>
 );

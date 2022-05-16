@@ -1,17 +1,19 @@
 import React from "react";
 import ProfilePic from "../PostCreator/ProfilePic";
 import profPic from "../../../Assets/robotPic.png";
-import Icon from "../Icon";
-import InputBarStyled from "./CommentBarStyled";
-import {sendIcon} from "../../../Assets/svg/index.js";
+import AddCommentForm from "./AddCommentForm";
+import CommentsList from "./CommentsList";
+import FlexStyled from "../FlexStyled";
 
 
-function CommentBar(props) {
-    return <>
+
+function CommentBar() {
+    return <FlexStyled>
         <ProfilePic src = {profPic} />
-        <InputBarStyled><input type="text" /></InputBarStyled>
-        <Icon src={sendIcon}/>
-    </>;
+        <AddCommentForm />
+        <CommentsList />
+       
+    </FlexStyled>;
 }
 
 export default CommentBar;

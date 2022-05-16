@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import PostTitleStyled from "./PostTitleStyled";
 
 PostTitle.propTypes ={
-    postItem :PropTypes.object
+    title :PropTypes.string,
 };
-function PostTitle({postItem}) {
+function PostTitle({title}) {
     return (
         <PostTitleStyled>
-            {postItem.content.title}
+            {title}
         </PostTitleStyled>
     );
 }

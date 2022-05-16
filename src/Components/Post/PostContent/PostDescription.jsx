@@ -3,13 +3,12 @@ import PropTypes from "prop-types";
 import PostDescriptionStyled from "./PostDescriptionStyled";
 
 PostDescription.propTypes ={
-    postItem: PropTypes.object,
+    description: PropTypes.string,
 };
-function PostDescription({postItem}) {
+function PostDescription({description}) {
     return <PostDescriptionStyled>
-        {postItem.content.description}
+        {description}
     </PostDescriptionStyled>;
-
     
 }
 
