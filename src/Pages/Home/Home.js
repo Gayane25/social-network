@@ -17,7 +17,6 @@ function Home() {
         {
             myposts.map(singlePost => (
                 <Post key ={singlePost.id} singlePost={singlePost} />
-            
             ) )
         }
     </div>;

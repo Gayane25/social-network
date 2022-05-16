@@ -16,31 +16,52 @@ const postSlice = createSlice({
     ],
     reducers:{
         addPost:(state, action)=>{
-            const newPost ={
+            const newPost = {
                 id:Math.random(),
                 owner:"Reddit",
                 content:{
                     title:action.payload.title,
                     description:action.payload.description,
                     image:null,
-                    like:false,
+                    likes:false,
                     comments:[],
                 }
                 
             };
             state.push(newPost);
         },
+        deletePost:(state, action)=>{
+            return  state.filter((item)=>item.id !== action.payload.id);
+            
+        },
+        toggleLikePost:(state,action )=>{
+        
+            let index =  state.findIndex((element)=>element.id===action.payload.id);
+            state[index].content.likes = !action.payload.likes;
+        
+            
+        },
         addComment:(state, action)=>{
-            // let foundPost = state.find((item)=>item.id ===action.payload.id);
             const newComment= {
                 commentId:Math.random(),
                 commentContent:action.payload.commentContent,
                 like:false
             };
             state.map((singlePost)=>singlePost.content.comments.push(newComment));
-        }
+           
+        },
+        toggleLikeComment:(state,action )=>{
+            const postIndex = state.findIndex((element)=>element.id===action.payload.id);
+            const commentIndex = state[postIndex].content.comments.findIndex(comment=>comment.commentId ===action.payload.id);
+            state[postIndex].content.comments[commentIndex].like = !action.payload.like;
+            
+        },
+        deleteComment:(state,action)=>{
+            const postIndex = state.findIndex((element)=>element.id===action.payload.id);
+            state[postIndex].content.comments.filter((item)=>item.commentId !==action.payload.commentId);
+        },
     }
 });
 
-export const {addPost, addComment} = postSlice.actions;
+export const {addPost, addComment, deletePost, toggleLikePost, toggleLikeComment, deleteComment} = postSlice.actions;
 export default postSlice.reducer; 

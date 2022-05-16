@@ -11,7 +11,7 @@ function CommentsList() {
     return (
         <>
             {comments.map((comment)=>(
-                <CommentItem key ={comment.commentId} comment ={comment}/>
+                <CommentItem key ={comment.commentId} comment={comment}/>
             ))}
         </>
     );

@@ -24,7 +24,7 @@ function AddCommentForm() {
         <>
             <AddCommentFormStyled>
                 <form onSubmit={onSubmit}>
-                    <input type="text" placeholder="Add comment..." value ={value} onChange ={(event)=>setValue(event.target.value)}/>
+                    <input type="text" placeholder="Add comment..." value ={value} onChange ={(event)=>setValue(event.target.value)} name="commentInput"/>
                     <Icon src={sendIcon} onSubmit ={onSubmit} />
                 </form>
             </AddCommentFormStyled>

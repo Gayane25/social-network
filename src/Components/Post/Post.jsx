@@ -10,6 +10,8 @@ import {likeIcon,  moreIcon, commentIcon, shareIcon} from "../../Assets/svg/inde
 import PostContent from "./PostContent/PostContent";
 import PropTypes from "prop-types";
 import CommentBar from "./Comments/CommentBar";
+import {useDispatch} from "react-redux";
+import {deletePost, toggleLikePost} from "../../redux/postSlice";
 
 Post.propTypes = {
     singlePost: PropTypes.object,
@@ -17,7 +19,14 @@ Post.propTypes = {
 
 
 function Post({singlePost}) {
+    const dispatch = useDispatch();
 
+    const handleDeleteClick =(id)=>{
+        dispatch(deletePost({ id: id}));
+    };
+    const handleToggleLike =(id, likes)=>{
+        dispatch (toggleLikePost({id:id, likes:!likes}));
+    };
     return (
         <PostStyled >
             <FlexStyled direction ="column">
@@ -29,12 +38,12 @@ function Post({singlePost}) {
                             <CreateDate color="black">9min ago</CreateDate>
                         </FlexStyled>
                     </FlexStyled>
-                    <Icon src={moreIcon}/>
+                    <Icon src={moreIcon}/> <button onClick={()=>handleDeleteClick(singlePost.id)}>Delete</button>
                 </FlexStyled>
                 <PostContent content ={singlePost.content}/>
 
                 <FlexStyled margin="3px" justify="space-between">
-                    <span>
+                    <span onClick={()=>handleToggleLike(singlePost.id, !singlePost.content.likes)}>
                         <Icon src={likeIcon}/> Like 
                     </span>
                     <span>

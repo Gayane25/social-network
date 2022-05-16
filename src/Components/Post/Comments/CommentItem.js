@@ -2,11 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 CommentItem.propTypes = {
-    comment:PropTypes.object,
+    commentContent:PropTypes.string,
 };
 
-function CommentItem({comment}) {
-    return<p>{comment.commentContent}</p>;
+function CommentItem({commentContent}) {
+    return (
+        <p>{commentContent}</p>
+    );
 }
 export default CommentItem;
 
