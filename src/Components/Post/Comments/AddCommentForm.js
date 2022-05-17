@@ -15,12 +15,13 @@ function AddCommentForm({singlePost}) {
     const [value, setValue] = useState("");
     const dispatch =useDispatch();
 
-    const onSubmit = (event)=>{
+    const submitHandler = (event, id)=>{
         event.preventDefault();
+        console.log(id);
         dispatch(
             addComment({
                 commentContent: value,
-                
+                id:id
             })
         );
 
@@ -28,9 +29,9 @@ function AddCommentForm({singlePost}) {
     return (
         <>
             <AddCommentFormStyled>
-                <form onSubmit={onSubmit}>
+                <form onSubmit={(event)=>submitHandler(event, singlePost.id)}>
                     <input type="text" placeholder="Add comment..." value ={value} onChange ={(event)=>setValue(event.target.value)} name="commentInput"/>
-                    <Icon src={sendIcon} />
+                    <span><Icon src={sendIcon} /></span>
                 </form>
             </AddCommentFormStyled>
         </>

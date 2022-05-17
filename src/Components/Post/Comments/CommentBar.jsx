@@ -12,12 +12,15 @@ CommentBar.propTypes = {
 
 
 function CommentBar({singlePost}) {
-    return <FlexStyled>
-        <ProfilePic src = {profPic} />
-        <AddCommentForm singlePost={singlePost} />
-        <CommentsList comments = {singlePost.content.comments} />
+    return (<>
+        <FlexStyled>
+            <ProfilePic src = {profPic} />
+            <AddCommentForm singlePost={singlePost} comments ={singlePost.comments}/>
+        </FlexStyled>
+        <CommentsList comments = {singlePost.comments} singlePostId = {singlePost.id} />
+    </>);
        
-    </FlexStyled>;
+    
 }
 
 export default CommentBar;
