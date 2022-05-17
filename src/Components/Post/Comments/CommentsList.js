@@ -7,7 +7,7 @@ import {CommentsListStyled} from "./CommentsListStyled";
 
 CommentsList.propTypes = {
     // comments:PropTypes.object,
-    singlePostId:PropTypes.number,
+    singlePostId:PropTypes.string,
     comments:PropTypes.array
 };
 

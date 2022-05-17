@@ -1,22 +1,31 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { element } from "prop-types";
 
+const getPosts = createAsyncThunk(
+    "posts/getPosts",
+    async (dispatch, getState)=>{
+        return await fetch("http://localhost:5000/api/posts").then((res)=>res.json());
+    }
+);
 
 const postSlice = createSlice({
     name:"posts",
-    initialState:[
-        { id:Math.random(),
-            owner:"Reddit",
-            content:{
-                title:"Lorem Ipsum",
-                description:"orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-                image:null
-            },
-
-            likes:[ 125, 1258,123456],
-            comments:[{commentId:Math.random(),commentContent:"my first comment", like:[]}],
+    initialState:{
+        myPosts:[],
+        status:null
+    },
+    extraReducers:{
+        [getPosts.pending]:(state, action)=>{
+            state.status="loading";
         },
-    ],
+        [getPosts.fulfilled]:(state,action)=>{
+            state.status="success";
+            state.myPosts = action.payload;
+        },
+        [getPosts.rejected]:(state,action)=>{
+            state.status ="failed";
+        }
+    },
     reducers:{
         addPost:(state, action)=>{
             const newPost = {
@@ -76,3 +85,7 @@ const postSlice = createSlice({
 
 export const {addPost, addComment, deletePost, toggleLikePost, toggleLikeComment, deleteComment} = postSlice.actions;
 export default postSlice.reducer; 
+export {getPosts};
+
+
+//comments:[{commentId:Math.random(),commentContent:"my first comment", like:[]}], for comments

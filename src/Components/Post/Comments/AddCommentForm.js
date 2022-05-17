@@ -29,7 +29,7 @@ function AddCommentForm({singlePost}) {
     return (
         <>
             <AddCommentFormStyled>
-                <form onSubmit={(event)=>submitHandler(event, singlePost.id)}>
+                <form onSubmit={(event)=>submitHandler(event, singlePost.content._id)}>
                     <input type="text" placeholder="Add comment..." value ={value} onChange ={(event)=>setValue(event.target.value)} name="commentInput"/>
                     <span><Icon src={sendIcon} /></span>
                 </form>

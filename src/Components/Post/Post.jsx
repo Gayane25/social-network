@@ -39,12 +39,12 @@ function Post({singlePost,user}) {
                             <CreateDate color="black">9min ago</CreateDate>
                         </FlexStyled>
                     </FlexStyled>
-                    <Icon src={moreIcon}/> <button onClick={()=>handleDeleteClick(singlePost.id)}>Delete</button>
+                    <Icon src={moreIcon}/> <button onClick={()=>handleDeleteClick(singlePost.content._id)}>Delete</button>
                 </FlexStyled>
                 <PostContent content ={singlePost.content}/>
 
                 <FlexStyled margin="3px" justify="space-between">
-                    <span onClick={()=>handleToggleLike(singlePost.id,user.userId)} style={singlePost.likes.includes(user.userId)? {color:"blue"}:{color:"black"}}>
+                    <span onClick={()=>handleToggleLike(singlePost.content_id,singlePost._id)} style={singlePost.likes.includes(singlePost._id)? {color:"blue"}:{color:"black"}}>
                         <Icon src={likeIcon}/> Like 
                     </span>
                     <span>

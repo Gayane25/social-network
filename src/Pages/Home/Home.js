@@ -1,16 +1,22 @@
-import React from "react" ;
+import React, {useEffect} from "react" ;
 import { Link } from "react-router-dom";
 import Post from "../../Components/Post/Post";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CreatePostForm from "../../Components/Post/CreatePostForm";
 import PropTypes from "prop-types";
+import {getPosts} from "../../redux/postSlice";
 
 Home.propTypes = {
     user:PropTypes.object
 };
 
 function Home({user}) {
-    const myposts = useSelector((state)=>state.posts);
+    const dispatch = useDispatch();
+    const {myPosts} = useSelector((state)=>state.myPosts);
+    // console.log(myPosts);
+    useEffect(()=>{
+        dispatch(getPosts());
+    },[]);
     return <div>
         {/* <h2>Home</h2>
         <Link to= "/messages">Messages</Link>
@@ -19,8 +25,8 @@ function Home({user}) {
         <CreatePostForm user ={user} />
         
         {
-            myposts.map(singlePost => (
-                <Post key ={singlePost.id} singlePost={singlePost}  user={user}/>
+            myPosts && myPosts.map(singlePost => (
+                <Post key ={singlePost.content._id} singlePost={singlePost}  user={user}/>
             ) )
         }
     </div>;

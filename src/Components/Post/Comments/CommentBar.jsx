@@ -17,7 +17,7 @@ function CommentBar({singlePost}) {
             <ProfilePic src = {profPic} />
             <AddCommentForm singlePost={singlePost} comments ={singlePost.comments}/>
         </FlexStyled>
-        <CommentsList comments = {singlePost.comments} singlePostId = {singlePost.id} />
+        <CommentsList comments = {singlePost.comments} singlePostId = {singlePost.content._id} />
     </>);
        
     
