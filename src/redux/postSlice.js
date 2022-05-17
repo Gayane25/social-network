@@ -43,7 +43,7 @@ const postSlice = createSlice({
             state.push(newPost);
         },
         deletePost:(state, action)=>{
-            return  state.filter((item)=>item.id !== action.payload.id);
+            return  state.myPosts.filter((item)=>item.id !== action.payload.id);
             
         },
         toggleLikePost:(state,action )=>{
