@@ -15,17 +15,18 @@ import {deletePost, toggleLikePost} from "../../redux/postSlice";
 
 Post.propTypes = {
     singlePost: PropTypes.object,
+    user:PropTypes.object,
 };
 
 
-function Post({singlePost}) {
+function Post({singlePost,user}) {
     const dispatch = useDispatch();
 
     const handleDeleteClick =(id)=>{
         dispatch(deletePost({ id: id}));
     };
-    const handleToggleLike =(id, likes)=>{
-        dispatch (toggleLikePost({id:id, likes:!likes}));
+    const handleToggleLike =(id, userId)=>{
+        dispatch (toggleLikePost({id:id, userId:user.userId}));
     };
     return (
         <PostStyled >
@@ -43,7 +44,7 @@ function Post({singlePost}) {
                 <PostContent content ={singlePost.content}/>
 
                 <FlexStyled margin="3px" justify="space-between">
-                    <span onClick={()=>handleToggleLike(singlePost.id, !singlePost.content.likes)}>
+                    <span onClick={()=>handleToggleLike(singlePost.id,user.userId)} style={singlePost.likes.includes(user.userId)? {color:"blue"}:{color:"black"}}>
                         <Icon src={likeIcon}/> Like 
                     </span>
                     <span>
@@ -54,9 +55,9 @@ function Post({singlePost}) {
                     </span>
 
                 </FlexStyled>
-                <FlexStyled justify="space-between" padding="5px">
-                    <CommentBar singlePost = {singlePost}/>
-                </FlexStyled>
+                
+                <CommentBar singlePost = {singlePost}/>
+                
                 
             </FlexStyled>
         </PostStyled>

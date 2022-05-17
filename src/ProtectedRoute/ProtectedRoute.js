@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 ProtectedRoute.propTypes = {
     children: PropTypes.object,
-    user:PropTypes.string,
+    user:PropTypes.object,
     redirectURL:PropTypes.string
 };
 
@@ -13,7 +13,8 @@ function ProtectedRoute({children, user, redirectURL="/login"}) {
     if(!user){
         return <Navigate replace to = {redirectURL}/>;
     }
-    return <Outlet />;
+    return  children ? <> {children} </>: <Outlet />;
+    
 }
 
 export default ProtectedRoute;

@@ -10,12 +10,15 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Register from "./Pages/Register/Register";
 
 
+
 function App() {
-    const [user, setUser] = useState("someName");
+   
+    const [user, setUser] = useState({userId:123456,
+        useName: "Red"});
     return (
         <Routes>
             <Route path ="/" element={<ProtectedRoute user={user} />}>
-                <Route path="/" element={<Home/>} />
+                <Route path="/" element={<Home user ={user}/>} />
                 <Route path ="/profile" element={<Profile />}/> 
                 <Route path ="messages" element={ <Messages />}/> 
                 <Route path ="/settings" element={<Settings />}/> 
