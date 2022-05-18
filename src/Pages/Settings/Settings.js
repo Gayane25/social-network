@@ -1,9 +1,10 @@
 import React from "react";
+import LoggedInHeader from "../../Components/LoggedinHeader/LoggedInHeader";
 
 function Settings() {
     return (
         <div>
-            <h2>Settings</h2>
+            <LoggedInHeader/>
         </div>
     );
 }

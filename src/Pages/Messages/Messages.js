@@ -1,9 +1,10 @@
 import React from "react";
+import LoggedInHeader from "../../Components/LoggedinHeader/LoggedInHeader";
 
 function Messages(){
     return(
         <div>
-            <h2>Messages</h2>
+            <LoggedInHeader/>
         </div>
     );
 }

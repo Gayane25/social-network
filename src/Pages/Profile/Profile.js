@@ -1,8 +1,11 @@
 import React from "react";
+import LoggedInHeader from "../../Components/LoggedinHeader/LoggedInHeader";
 
 function Profile() {
     return (
-        <div>Profile</div>
+        <div>
+            <LoggedInHeader/>
+        </div>
     );
 }
 

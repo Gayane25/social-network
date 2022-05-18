@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import CreatePostForm from "../../Components/Post/CreatePostForm";
 import PropTypes from "prop-types";
 import {getPosts} from "../../redux/postSlice";
+import LoggedInHeader from "../../Components/LoggedinHeader/LoggedInHeader";
 
 Home.propTypes = {
     user:PropTypes.object
@@ -22,6 +23,7 @@ function Home({user}) {
         <Link to= "/messages">Messages</Link>
         <Link to ="/profile">Profile</Link>
         <Link to="Settings">Settings</Link> */}
+        <LoggedInHeader/>
         <CreatePostForm user ={user} />
         
         {
