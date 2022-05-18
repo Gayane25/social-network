@@ -1,8 +1,16 @@
 const router = require('express').Router()
 const Post = require('../models/Post')
 
-router.get('/',(req,res)=>{
-    res.send('welcome po posts')
+router.get('/',async (req,res)=>{
+    try{
+        const pageNumber = req.query._page || 1
+        const limit = req.query._limit || 20
+        const offset = pageNumber * limit - limit
+        const posts = await Post.find().skip(offset).limit(limit)
+        res.send(posts)
+    }catch(err){
+        res.json({message:'Try later...'})
+    }
 })
 
 router.post('/', async (req, res) => {
