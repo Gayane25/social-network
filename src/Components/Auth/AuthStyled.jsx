@@ -25,6 +25,7 @@ const AuthStyled = styled.form`
         text-align: center;
         color: #6F6C90;
     }
+
     input{
         width: 446px;
         height: 66px;
@@ -53,8 +54,8 @@ const AuthStyled = styled.form`
         font-size: 34px;
         line-height: 46px;
         color: #6E00FF;
-}
-    
+}    
+
 `;
 
 export {AuthStyled};
