@@ -7,6 +7,7 @@ align-items: ${props=>props.align || "stretch"};
 justify-content: ${props=>props.justify || "stretch"};
 padding: ${({padding})=>padding ||"0"};
 margin: ${({margin})=>margin || "0"};
+margin-top: ${({top})=>top || "0"};
 flex-wrap:${props=>props.wrap || "no-wrap"};
 width:inherit;
 `;
