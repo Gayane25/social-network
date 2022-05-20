@@ -29,17 +29,31 @@ available urls -
                                         content_title: String | required,
                                         content_description: String | required,
                                         content_image_url: String | required
-                                   }
-    - for getting all posts    -  localhost:8000/api/posts
+                                   }    
+    - for updating post  -  localhost:8000/api/posts/:postId
+           PATCH    headers    - {
+                                    authorization: "Bearer <token of user>"
+                                 }
+           PATCH    body        -  {
+                                        content_title: String | required,
+                                        content_description: String | required,
+                                        content_image_url: String | required
+                                    }    
+    - for liking AND unliking post  -  localhost:8000/api/posts/:postId/like
+           PATCH    headers    - {
+                                    authorization: "Bearer <token of user>"
+                                 }
+
+    - for getting user's all posts -  localhost:8000/api/posts?_page=<pagenumber>&_limit=<limitcount>
               GET   headers    - {
                                     authorization: "Bearer <token of user>"
                                  }
-              GET    body        -  {
-                                           owner: String | required,
-                                           content_title: String | required,
-                                           content_description: String | required,
-                                           content_image_url: String | required
-                                      }
+
+    - for getting user's timeline posts-localhost:8000/api/posts/timeline?_page=<pagenumber>&_limit=<limitcount>
+              GET   headers    - {
+                                    authorization: "Bearer <token of user>"
+                                 }
+
     - for getting single post  -  localhost:8000/api/posts/:postId
               GET   headers    - {
                                     authorization: "Bearer <token of user>"
@@ -53,3 +67,7 @@ available urls -
               PATCH   headers  - {
                                     authorization: "Bearer <token of user>"
                                 }
+    - for getting all users(only for role ADMIN)-  localhost:8000/api/user
+              GET   headers    - {
+                                    authorization: "Bearer <token of user>"
+                                 }
