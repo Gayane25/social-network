@@ -9,6 +9,7 @@ const cors = require('cors')
 
 const postsRoute = require('./routes/postsRouter')
 const authRoute = require('./routes/authRouter')
+const userRoute = require('./routes/userRouter')
 
 dotenv.config()
 const PORT = process.env.SERVER_PORT || 5000
@@ -21,6 +22,7 @@ app.use(helmet())
 app.use(morgan('common'))
 app.use('/api/posts', postsRoute)
 app.use('/api/auth', authRoute)
+app.use('/api/user',userRoute)
 
 mongoose.connect(process.env.MONGO_URL, () => {
     console.log('Connected to mongoDB')
