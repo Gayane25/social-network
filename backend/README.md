@@ -10,7 +10,7 @@ available urls -
                                   }
 
            response body      -  {
-                                          _id, username, token
+                                          _id,followers, followings, username, token
                                  }
     - for login          -  localhost:8000/api/auth/login
             GET     body       -  {
@@ -18,7 +18,7 @@ available urls -
                                    }
 
             response body      -  {
-                                      _id, username, token
+                                      _id,followers, followings, username, token
                                   }
     - for creating post  -  localhost:8000/api/posts
            POST    headers    - {
@@ -45,4 +45,11 @@ available urls -
                                     authorization: "Bearer <token of user>"
                                  }
 
-
+    - for following user  -  localhost:8000/api/user/:id/follow
+              PATCH   headers  - {
+                                    authorization: "Bearer <token of user>"
+                                }
+    - for unfollowing user  -  localhost:8000/api/user/:id/unfollow
+              PATCH   headers  - {
+                                    authorization: "Bearer <token of user>"
+                                }
