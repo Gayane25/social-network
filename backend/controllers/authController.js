@@ -36,9 +36,10 @@ class authController {
                 roles: [userRole.value],
                 password: hashedPassword
             })
-            const {roles,  _id,followers, followings,username: createdUserName} = await newUser.save()
-            const token = generateAccessToken(_id, roles)
-            return res.status(200).json({_id,followers, followings, username: createdUserName,token})
+            const createdUser = await newUser.save()
+            const {password: createdUserPass, roles, ...userInfo} = createdUser._doc
+            const token = generateAccessToken(userInfo._id, roles)
+            return res.status(200).json({...userInfo, token})
         } catch (err) {
             console.log(err)
             res.status(400).json({message: 'Registration failed'})
@@ -56,14 +57,13 @@ class authController {
             if (!valaidPassword) {
                 return res.status(400).json({message: 'Password incorrect'})
             }
-            const {_id, roles,followers, followings, password: userPass, username: loginedUserName} = user
-            const token = generateAccessToken(_id, roles)
-            return res.status(200).json({_id,followers, followings, username: loginedUserName, token})
+            const {password: createdUserPass, roles, ...userInfo} = user._doc
+            const token = generateAccessToken(userInfo._id, roles)
+            return res.status(200).json({...userInfo, token})
         } catch (err) {
             res.status(400).json({message: 'Login failed'})
         }
     }
-
 
 
 }

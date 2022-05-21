@@ -67,6 +67,19 @@ available urls -
               PATCH   headers  - {
                                     authorization: "Bearer <token of user>"
                                 }
+    - for updating  user   -  localhost:8000/api/user/:id
+              PUT body - {any data, shuld be updated}
+              PUT    headers  - {
+                                    authorization: "Bearer <token of user>"
+                                }
+    - for deleting  user (only admin)   -  localhost:8000/api/user/:id
+              DELETE    headers  - {
+                                    authorization: "Bearer <token of user>"
+                                }
+    - for getting a single user -  localhost:8000/api/user/:id
+              GET   headers    - {
+                                    authorization: "Bearer <token of user>"
+                                 }
     - for getting all users(only for role ADMIN)-  localhost:8000/api/user
               GET   headers    - {
                                     authorization: "Bearer <token of user>"
