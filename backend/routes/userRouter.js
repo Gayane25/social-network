@@ -1,11 +1,16 @@
 const router = require('express').Router()
 const controller = require('../controllers/usersController')
-const authMiddleware = require("../middlewares/authMiddleware");
-const rolesMiddleware = require("../middlewares/rolesMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware")
+const rolesMiddleware = require("../middlewares/rolesMiddleware")
 
 // Update user
+router.put('/:userId',authMiddleware,controller.updateUser)
+
 // Delete user
+router.delete('/:userId',rolesMiddleware(['ADMIN']),controller.deleteUser)
+
 // Get a user
+router.get('/:userId',authMiddleware, controller.getSingleUser)
 
 // Get all users
 router.get('/',rolesMiddleware(['ADMIN']), controller.getUsers)
