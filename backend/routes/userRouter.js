@@ -9,6 +9,9 @@ router.put('/:userId',authMiddleware,controller.updateUser)
 // Delete user
 router.delete('/:userId',rolesMiddleware(['ADMIN']),controller.deleteUser)
 
+//get all friends
+router.get('/friends',authMiddleware,controller.getAllFriends)
+
 // Get a user
 router.get('/:userId',authMiddleware, controller.getSingleUser)
 
