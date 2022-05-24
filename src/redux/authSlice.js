@@ -13,6 +13,11 @@ const loginUser = createAsyncThunk(
         // return response.data;
     }
 );
+
+const logOutUser = createAsyncThunk(
+    "authUser/logout",
+    async() => await localStorage.removeItem("user")
+);
    
 
 
@@ -35,7 +40,7 @@ const loginUser = createAsyncThunk(
 const authSlice = createSlice({
     name:"logUser",
     initialState:{
-        isAuth:false,
+        // isAuth:false,
         loginedUser:{},
         status:null,
     },
@@ -48,14 +53,18 @@ const authSlice = createSlice({
        
             state.status="fulfilled";
             state.loginedUser = action.payload;  
-            state.isAuth=true;
+            state.isAuth = true;
         },
         [loginUser.rejected]:(state,action)=>{
             state.status = "failed";
+        },
+        [logOutUser.fulfilled]:(state,action)=>{
+            state.loginedUser = null;
         }
+
     }
 });
 
 export default authSlice.reducer;
 export const {authUser} = authSlice.actions;
-export {loginUser};
+export {loginUser, logOutUser};

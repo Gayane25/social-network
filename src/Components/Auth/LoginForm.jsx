@@ -11,14 +11,17 @@ import {useNavigate} from "react-router-dom";
 function LoginForm() {
     const [username, setusername]= useState("");
     const [password, setpassword]=useState("");
-    const Navigate = useNavigate();
+    const token = useSelector((state)=>state.logUser.token);
+    const navigate = useNavigate();
+
     const isAuth = useSelector((state)=>state.logUser.isAuth);
     const dispatch=useDispatch();
     const handleLoginSubmit = (event) =>{
         event.preventDefault();
         dispatch(loginUser({username:username, password:password}));
-        // console.log(event);
+        navigate("/");
     };
+
     return (
         
         <AuthStyled onSubmit={handleLoginSubmit}>
@@ -26,10 +29,9 @@ function LoginForm() {
             <input type="text" value={username} onChange={(event)=>setusername(event.target.value)}placeholder="LogIn"/>
             <input type="password" value={password} onChange={(event)=>setpassword(event.target.value)} placeholder="Password"/>
             <ButtonStyled background ="#6E00FF">Login</ButtonStyled>
-            {!isAuth && <Link to= "/register">Not registered yet?</Link>} 
+            {!token && <Link to= "/register">Not registered yet?</Link>} 
         </AuthStyled>
           
-        
     );
 }
 

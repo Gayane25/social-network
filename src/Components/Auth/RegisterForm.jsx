@@ -11,13 +11,14 @@ function RegisterForm() {
     // console.log(registeration);
     const [username, setUserName] = useState("");
     const[password, setPassword]= useState("");
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
     const handleRegisterPost =(event)=>{
         event.preventDefault();
         dispatch(registerUser({username:username,password:password }));
+        navigate("/");
     };
 
    

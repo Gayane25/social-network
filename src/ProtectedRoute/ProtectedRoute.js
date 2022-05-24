@@ -10,9 +10,9 @@ ProtectedRoute.propTypes = {
 };
 
 
-function ProtectedRoute({children, user, redirectURL="/login"}) {
-    const isAuth = useSelector((state)=>state.logUser.isAuth);
-    if(!isAuth){
+function ProtectedRoute({children, redirectURL="/login"}) {
+    const token = useSelector((state)=>state.logUser.token);
+    if(token){
         return <Navigate replace to = {redirectURL}/>;
     }
     return  children ? <> {children} </>: <Outlet />;

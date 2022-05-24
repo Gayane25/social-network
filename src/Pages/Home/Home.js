@@ -4,7 +4,7 @@ import Post from "../../Components/Post/Post";
 import { useSelector, useDispatch } from "react-redux";
 import CreatePostForm from "../../Components/Post/CreatePostForm";
 import PropTypes from "prop-types";
-import {getPosts} from "../../redux/postSlice";
+// import {getPosts} from "../../redux/postSlice";
 import LoggedInHeader from "../../Components/LoggedinHeader/LoggedInHeader";
 
 Home.propTypes = {
@@ -15,9 +15,9 @@ function Home({user}) {
     const dispatch = useDispatch();
     const {myPosts} = useSelector((state)=>state.myPosts);
     // console.log(myPosts);
-    useEffect(()=>{
-        dispatch(getPosts());
-    },[]);
+    // useEffect(()=>{
+    //     dispatch(getPosts());
+    // },[]);
     return <div>
         {/* <h2>Home</h2>
         <Link to= "/messages">Messages</Link>
@@ -25,7 +25,6 @@ function Home({user}) {
         <Link to="Settings">Settings</Link> */}
         <LoggedInHeader/>
         <CreatePostForm user ={user} />
-        
         {
             myPosts && myPosts.map(singlePost => (
                 <Post key ={singlePost.content._id} singlePost={singlePost}  user={user}/>

@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { element } from "prop-types";
 
-const getPosts = createAsyncThunk(
-    "posts/getPosts",
-    async (dispatch, getState)=>{
-        return await fetch("http://localhost:5000/api/posts").then((res)=>res.json());
-    }
-);
+// const getPosts = createAsyncThunk(
+//     "posts/getPosts",
+//     async (dispatch, getState)=>{
+//         return await fetch("http://localhost:5000/api/posts").then((res)=>res.json());
+//     }
+// );
 
 const postSlice = createSlice({
     name:"posts",
@@ -14,18 +14,18 @@ const postSlice = createSlice({
         myPosts:[],
         status:null
     },
-    extraReducers:{
-        [getPosts.pending]:(state, action)=>{
-            state.status="loading";
-        },
-        [getPosts.fulfilled]:(state,action)=>{
-            state.status="success";
-            state.myPosts = action.payload;
-        },
-        [getPosts.rejected]:(state,action)=>{
-            state.status ="failed";
-        }
-    },
+    // extraReducers:{
+    //     [getPosts.pending]:(state, action)=>{
+    //         state.status="loading";
+    //     },
+    //     [getPosts.fulfilled]:(state,action)=>{
+    //         state.status="success";
+    //         state.myPosts = action.payload;
+    //     },
+    //     [getPosts.rejected]:(state,action)=>{
+    //         state.status ="failed";
+    //     }
+    // },
     reducers:{
         addPost:(state, action)=>{
             const newPost = {
@@ -85,7 +85,7 @@ const postSlice = createSlice({
 
 export const {addPost, addComment, deletePost, toggleLikePost, toggleLikeComment, deleteComment} = postSlice.actions;
 export default postSlice.reducer; 
-export {getPosts};
+// export {getPosts};
 
 
 //comments:[{commentId:Math.random(),commentContent:"my first comment", like:[]}], for comments
