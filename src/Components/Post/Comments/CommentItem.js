@@ -6,10 +6,10 @@ import profPic from "../../../Assets/robotPic.png";
 // import {toggleLikeComment} from "../../../redux/postSlice";
 import {useDispatch} from "react-redux";
 
-// CommentItem.propTypes = {
-//     comment:PropTypes.object,
-//     singlePostId:PropTypes.number,
-// };
+CommentItem.propTypes = {
+    comment:PropTypes.object,
+    singlePostId:PropTypes.number,
+};
 
 // function CommentItem({comment, singlePostId}) {
 //     const dispatch = useDispatch();
@@ -28,10 +28,10 @@ import {useDispatch} from "react-redux";
 // }
 // export default CommentItem;
 
-//profilePic,
-//profileName
-//comment in paragraphs
-//icon like
+// profilePic,
+// profileName
+// comment in paragraphs
+// icon like
 
 
-//style={comment.like? {color:"blue"}:{color:"black"}}
+// style={comment.like? {color:"blue"}:{color:"black"}}

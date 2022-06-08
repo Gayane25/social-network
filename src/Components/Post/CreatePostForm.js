@@ -25,10 +25,14 @@ function CreatePostForm() {
             content_title:title,
             content_description:description,
             content_image_url:contentImage}));
+        setTitle("");
+        setDescription("");
+        setContentImage("");
         console.log(state);
     };
    
     return (
+       
         <CreatePostStyled >
             <ProfilePic src={prof}/>
             <form onSubmit ={onSubmit}>  
@@ -37,7 +41,7 @@ function CreatePostForm() {
                 <textarea type ="text" value ={description} onChange={(event)=>setDescription(event.target.value)} placeholder="Add a description..."/>
                 <input type ="text" value={contentImage} onChange={(event)=>setContentImage(event.target.value)}/>
                 <button onSubmit={onSubmit}>Post</button>
-            </form>
+            </form> 
         </CreatePostStyled>
     );
 }

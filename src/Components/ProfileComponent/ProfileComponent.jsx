@@ -7,6 +7,7 @@ import "./ProfileComponentStyles.css";
 import Post from "../Post/Post";
 import {getPosts} from "../../redux/postSlice";
 import { useDispatch, useSelector } from "react-redux";
+import CreatePostForm from "../Post/CreatePostForm";
 function ProfileComponent() {
     const dispatch= useDispatch();
 
@@ -35,11 +36,12 @@ function ProfileComponent() {
                             />
                         </div>
                         <div className="profileInfo">
-                            <h4 className="profileInfoName">Safak Kocaoglu</h4>
+                            <h4 className="profileInfoName">Gayane Babayan</h4>
                             <span className="profileInfoDesc">Hello my friends!</span>
                         </div>
                     </div>
                     <div className="profileRightBottom">
+                        <CreatePostForm/>
                         {
                             myposts.map((post)=><Post key={post._id} post={post}/>)
                         }

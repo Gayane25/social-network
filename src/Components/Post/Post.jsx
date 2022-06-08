@@ -9,11 +9,12 @@ import CreateDate from "./PostCreator/CreateDate";
 import {likeIcon,  moreIcon, commentIcon, shareIcon} from "../../Assets/svg/index.js";
 import PostContent from "./PostContent/PostContent";
 import PropTypes from "prop-types";
-import CommentBar from "./Comments/CommentBar";
+// import CommentBar from "./Comments/CommentBar";
 import {useDispatch} from "react-redux";
 import "./PostStyles.css";
 import {deletePost, toggleLikePost, getPosts} from "../../redux/postSlice";
 import formatDate from "../../helpers/formatDate";
+import PostComments from "./PostComments/PostComments";
 
 Post.propTypes = {
     post: PropTypes.object,
@@ -50,9 +51,8 @@ function Post({post}) {
                         <span className="postDate">{formatDate(post.createdAt)}</span>
                     </div>
                     <div className="postTopRight">
-                        <span>{moreIcon}</span>
+                        <span><img src={moreIcon}/></span>
                        
-                        {/* <MoreVert /> */}
                     </div>
                 </div>
                 <div className="postCenter">
@@ -66,9 +66,11 @@ function Post({post}) {
                         <span className="postLikeCounter">3 people like it</span>
                     </div>
                     <div className="postBottomRight">
-                        <span className="postCommentText"> {commentIcon}Comments</span>
+                        <span className="postCommentText"> Comments</span>
+                        <img src={commentIcon}/>
                     </div>
-                   
+                    <PostComments />
+                    
                 </div>
             </div>
         </div>
