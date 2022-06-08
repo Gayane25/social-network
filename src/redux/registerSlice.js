@@ -28,6 +28,7 @@ const registerSlice = createSlice({
            
             state.status="fulfilled";
             state.user =action.payload;  
+            
         },
         [registerUser.rejected]:(state,action)=>{
             state.status = "failed";

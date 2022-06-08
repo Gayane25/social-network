@@ -6,21 +6,21 @@ import CommentsList from "./CommentsList";
 import FlexStyled from "../FlexStyled";
 import PropTypes from "prop-types";
 
-CommentBar.propTypes = {
-    singlePost:PropTypes.object,
-};
+// CommentBar.propTypes = {
+//     singlePost:PropTypes.object,
+// };
 
 
-function CommentBar({singlePost}) {
-    return (<>
-        <FlexStyled>
-            <ProfilePic src = {profPic} />
-            <AddCommentForm singlePost={singlePost} comments ={singlePost.comments}/>
-        </FlexStyled>
-        <CommentsList comments = {singlePost.comments} singlePostId = {singlePost.content._id} />
-    </>);
+// function CommentBar({singlePost}) {
+//     return (<>
+//         <FlexStyled>
+//             <ProfilePic src = {profPic} />
+//             <AddCommentForm singlePost={singlePost} comments ={singlePost.comments}/>
+//         </FlexStyled>
+//         <CommentsList comments = {singlePost.comments} singlePostId = {singlePost.content._id} />
+//     </>);
        
     
-}
+// }
 
-export default CommentBar;
+// export default CommentBar;

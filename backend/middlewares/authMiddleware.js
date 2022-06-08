@@ -1,19 +1,22 @@
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
 module.exports = function(req,res,next){
-    if(req.method === 'OPTIONS'){
-        next()
+    if(req.method === "OPTIONS"){
+        next();
     }
 
     try{
-        const token = req.headers.authorization.split(' ')[1]
+        const token = req.headers.authorization.split(" ")[1];
+    
+        console.log("token",token);
         if(!token){
-            return res.status(403).json({message:'User not authorized'})
+            return res.status(403).json({message:"User not authorized"});
         }
-        const decodedData = jwt.verify(token,process.env.TOKEN_SECRET)
-        req.user = decodedData
-        next()
+        const decodedData = jwt.verify(token,process.env.TOKEN_SECRET);
+        req.user = decodedData;
+        next();
     }catch(err){
-        return res.status(403).json({message:'User not authorized'})
+        console.log(err);
+        return res.status(403).json({message:"User not authorized"});
     }
-}
+};

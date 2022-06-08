@@ -7,8 +7,10 @@ import homeIcon from "./house-user-solid.svg";
 import settingsIcon from "./gear-solid.svg";
 import messageIcon from "./message-solid.svg";
 import notifIcon from "./bell-solid.svg";
+import friendsIcon from "./user-group-solid.svg";
+import userIcon from "./user-solid.svg";
 export {
-    likeIcon,  commentIcon, shareIcon, moreIcon, sendIcon, homeIcon, settingsIcon,notifIcon, messageIcon
+    likeIcon,  commentIcon, shareIcon, moreIcon, sendIcon, homeIcon, settingsIcon,notifIcon, messageIcon, friendsIcon, userIcon
 };
 
 
