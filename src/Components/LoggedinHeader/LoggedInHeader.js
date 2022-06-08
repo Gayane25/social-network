@@ -19,10 +19,6 @@ function LoggedInHeader() {
         <LoggedInHeaderStyled>
             <input type="text" placeholder= " Search ....."/>
             <div>
-                <span><Icon src={homeIcon}/></span>
-                <span><Icon src ={settingsIcon}/></span>
-                <span><Icon src ={messageIcon}/></span>
-                <span><Icon src ={notifIcon}/></span>
                 <ProfilePic src ={robotik} height="50px" width="50px"/>
                 <span onClick={handleLogoutClick}>Logout</span>
             </div>

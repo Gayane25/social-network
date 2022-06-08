@@ -19,6 +19,7 @@ const CreatePostStyled = styled.div`
         align-items:center;
         justify-content: center;
        width:100%;
+       
     }
     input {
         width:100%;

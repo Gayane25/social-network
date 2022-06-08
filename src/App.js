@@ -7,11 +7,13 @@ import { Routes, Route } from "react-router";
 import "./App.css";  
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Register from "./Pages/Register/Register";
-
+import axios from "axios";
+import { useEffect } from "react";
 
 
 function App() {
-   
+
+
     return (
         <Routes>
             <Route path ="/" element={<ProtectedRoute />}>

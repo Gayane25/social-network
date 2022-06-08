@@ -5,7 +5,6 @@ const loginUser = createAsyncThunk(
     "authUser/loginUser",
     async({username,password})=>{
         const response = await axios.post("http://localhost:8000/api/auth/login",{username,password});
-        console.log(response);
         const token = await response.data.token;
         if(token){
             localStorage.setItem("user", JSON.stringify(response.data));
@@ -13,7 +12,6 @@ const loginUser = createAsyncThunk(
         // return response.data;
     }
 );
-
 const logOutUser = createAsyncThunk(
     "authUser/logout",
     async() => await localStorage.removeItem("user")
