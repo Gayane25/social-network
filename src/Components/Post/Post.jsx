@@ -17,7 +17,7 @@ import "./PostStyles.css";
 import { toggleLikePost, getPosts} from "../../redux/postSlice";
 import {deletePost} from "../../redux/singlePostRequestSlice";
 import formatDate from "../../helpers/formatDate";
-import PostComments from "./PostComments/PostComments";
+
 
 Post.propTypes = {
     post: PropTypes.object,
