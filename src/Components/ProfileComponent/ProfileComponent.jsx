@@ -8,6 +8,7 @@ import Post from "../Post/Post";
 import {getPosts} from "../../redux/postSlice";
 import { useDispatch, useSelector } from "react-redux";
 import CreatePostForm from "../Post/CreatePostForm";
+import { Link } from "react-router-dom";
 function ProfileComponent() {
     const dispatch= useDispatch();
 
