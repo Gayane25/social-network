@@ -17,6 +17,7 @@ export const getPosts = createAsyncThunk(
 );
 
 
+
 // let owner= JSON.parse(localStorage.getItem("user")).owner;
 
 
@@ -56,7 +57,8 @@ const postSlice = createSlice({
         },
         [getPosts.rejected]:(state)=>{
             state.status ="failed";
-        }
+        },
+        
        
 
     },
@@ -114,7 +116,7 @@ const postSlice = createSlice({
     //     }
 });
 
-export const { addComment, deletePost, toggleLikePost, toggleLikeComment, deleteComment} = postSlice.actions;
+export const { addComment, toggleLikePost, toggleLikeComment, deleteComment} = postSlice.actions;
 export default postSlice.reducer; 
 // export {getPosts};
 

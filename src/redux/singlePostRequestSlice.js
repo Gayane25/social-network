@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 let token = JSON.parse(localStorage.getItem("user")||"{}").token;
-const postId = "postId";
+
 // let userId = JSON.parse(localStorage.getItem("user")||"{}")._id;
 //{title, description, image}
 //content_title,
@@ -33,7 +33,7 @@ const createPost = createAsyncThunk("posts/createPost",
 );
 const updatePost = createAsyncThunk(
     "updated/updatePost",
-    async()=>{
+    async(postId)=>{
         return await fetch(`http://localhost:8000/api/posts/${postId}`,{
             method: "'PUT",
             headers:{
@@ -75,7 +75,7 @@ const likePost = createAsyncThunk(
 );
 const deletePost = createAsyncThunk(
     "deletedPost/deleteCurrentPost",
-    async()=>{
+    async(postId)=>{
         return await fetch(`http://localhost:8000/api/posts/${postId}`,{
             method: "'DELETE",
             headers:{
@@ -151,5 +151,5 @@ const singlePostRequestSlice = createSlice({
 
 
 export default singlePostRequestSlice.reducer;
-export {createPost, updatePost, getSinglePostByID, likePost, deletePost};
+export {createPost, updatePost, getSinglePostByID, likePost};
 

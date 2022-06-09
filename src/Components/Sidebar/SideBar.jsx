@@ -8,12 +8,12 @@ function SideBar() {
             <div className="sidebarWrapper">
                 <ul className="sidebarList">
                     <Link to ="/">
-                        <li>
-                            <li className="sidebarListItem">
-                                <span className="sidebarIcon" ><img src ={homeIcon}/>Feed</span>
-                                {/* <span className="sidebarListItemText"></span> */}
-                            </li>
+                       
+                        <li className="sidebarListItem">
+                            <span className="sidebarIcon" ><img src ={homeIcon}/>Feed</span>
+                            {/* <span className="sidebarListItemText"></span> */}
                         </li>
+                        
                     </Link>
                     <Link to ="/messages">
                         <li className="sidebarListItem">

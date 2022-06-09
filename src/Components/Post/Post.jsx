@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import FlexStyled from "./FlexStyled";
+import { Link } from "react-router-dom";
+import {useParams} from "react-router";
 import { PostStyled } from "./PostStyled";
 import Icon from "./Icon";
 import profPic from "../../Assets/robotPic.png";
@@ -9,11 +11,13 @@ import CreateDate from "./PostCreator/CreateDate";
 import {likeIcon,  moreIcon, commentIcon, shareIcon} from "../../Assets/svg/index.js";
 import PostContent from "./PostContent/PostContent";
 import PropTypes from "prop-types";
-import CommentBar from "./Comments/CommentBar";
+// import CommentBar from "./Comments/CommentBar";
 import {useDispatch} from "react-redux";
 import "./PostStyles.css";
-import {deletePost, toggleLikePost, getPosts} from "../../redux/postSlice";
+import { toggleLikePost, getPosts} from "../../redux/postSlice";
+import {deletePost} from "../../redux/singlePostRequestSlice";
 import formatDate from "../../helpers/formatDate";
+
 
 Post.propTypes = {
     post: PropTypes.object,
@@ -22,10 +26,13 @@ Post.propTypes = {
 
 
 function Post({post}) {
-    // const dispatch = useDispatch();
+    // const [commentsOpen,setCommentsOpen]= useState(false);
+    const dispatch = useDispatch();
+    const params = useParams();
+    console.log(params);
 
-    // const handleDeleteClick =(id)=>{
-    //     dispatch(deletePost({ id: id}));
+    // const handleDeleteClick =(postId)=>{
+    //     dispatch(deletePost({ postId: post._id}));
     // };
     // const handleToggleLike =(id, userId)=>{
     //     dispatch (toggleLikePost({id:id, userId:user.userId}));
@@ -50,9 +57,8 @@ function Post({post}) {
                         <span className="postDate">{formatDate(post.createdAt)}</span>
                     </div>
                     <div className="postTopRight">
-                        <span>{moreIcon}</span>
+                        <span><img src={moreIcon}/></span>
                        
-                        {/* <MoreVert /> */}
                     </div>
                 </div>
                 <div className="postCenter">
@@ -65,12 +71,15 @@ function Post({post}) {
                         <img className="likeIcon" src= {likeIcon} alt="" /> 
                         <span className="postLikeCounter">3 people like it</span>
                     </div>
-                    <div className="postBottomRight">
-                        <span className="postCommentText"> {commentIcon}Comments</span>
+                    <div className="postBottomRight" >
+                        <span className="postCommentText"> Comments</span>
+                        <img src={commentIcon}/>
                     </div>
-                   
+                    
+                    
                 </div>
             </div>
+            {/* {commentsOpen && <PostComments />} */}
         </div>
         // <PostStyled >
         //     <FlexStyled direction ="column">

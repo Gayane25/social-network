@@ -9,6 +9,7 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Register from "./Pages/Register/Register";
 import axios from "axios";
 import { useEffect } from "react";
+import Post from "./Components/Post/Post";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Routes>
             <Route path ="/" element={<ProtectedRoute />}>
                 <Route path="/" element={<Home/>} />
+                <Route path="/:postId"element={<Post/>}/>
                 <Route path ="/profile" element={<Profile />}/> 
                 <Route path ="messages" element={ <Messages />}/> 
                 <Route path ="/settings" element={<Settings />}/> 
