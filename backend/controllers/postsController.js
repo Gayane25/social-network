@@ -103,7 +103,6 @@ class postsController {
     }
 
     async deletePost(req, res) {
-        console.log(req.params.postId)
         try {
             const post = await Post.findById(req.params.postId)
             if (post.owner !== req.user.id) {

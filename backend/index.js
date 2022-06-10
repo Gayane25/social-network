@@ -7,6 +7,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const cors = require("cors");
 
+const deleteRoute = require("./routes/deleteRouter");
 const postsRoute = require("./routes/postsRouter");
 const authRoute = require("./routes/authRouter");
 const userRoute = require("./routes/userRouter");
@@ -17,10 +18,15 @@ const PORT = process.env.SERVER_PORT || 5000;
 const HOST = process.env.HOST || "localhost";
 
 
-app.use(cors());
+app.use(cors({
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+}));
 app.use(express.json());
 app.use(helmet({ crossOriginEmbedderPolicy: false }));
 app.use(morgan("common"));
+
 
 app.use("/api/posts", postsRoute);
 app.use("/api/auth", authRoute);
