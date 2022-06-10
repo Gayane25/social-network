@@ -2,11 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { element } from "prop-types";
 let token = JSON.parse(localStorage.getItem("user")||"{}").token;
-
+let page = 1;
+let limit=10;
 export const getPosts = createAsyncThunk(
     "posts/getPosts",
-    async (dispatch, getState)=>{
-        return await fetch("http://localhost:8000/api/posts?_page=1&_limit=10",{
+    async (page,limit)=>{
+        return await fetch(`http://localhost:8000/api/posts?_page=1&_limit=10`,{
             method: "GET",
             headers:{
                 "authorization": `Bearer ${token}`

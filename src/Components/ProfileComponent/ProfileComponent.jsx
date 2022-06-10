@@ -9,9 +9,9 @@ import {getPosts} from "../../redux/postSlice";
 import { useDispatch, useSelector } from "react-redux";
 import CreatePostForm from "../Post/CreatePostForm";
 import { Link } from "react-router-dom";
+import { createPost } from "../../redux/singlePostRequestSlice";
 function ProfileComponent() {
     const dispatch= useDispatch();
-
     useEffect(()=>{
         dispatch(getPosts());
     },[]);
@@ -44,9 +44,8 @@ function ProfileComponent() {
                     <div className="profileRightBottom">
                         <CreatePostForm/>
                         {
-                            myposts.map((post)=><Post key={post._id} post={post}/>)
+                            myposts.map((post)=><Post key = {post._id}post={post}/>)
                         }
-                        
                         {/* <Rightbar profile/> */}
                     </div>
                 </div>
@@ -56,3 +55,4 @@ function ProfileComponent() {
 }
 
 export default ProfileComponent;
+//<Link key={post._id} to={`/${post._id}`}>

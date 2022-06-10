@@ -24,24 +24,25 @@ Post.propTypes = {
     // user:PropTypes.object,
 };
 
-
 function Post({post}) {
     // const [commentsOpen,setCommentsOpen]= useState(false);
     const dispatch = useDispatch();
-    const params = useParams();
-    console.log(params);
+    const {postId} = useParams();
+    // console.log(postId);
 
-    // const handleDeleteClick =(postId)=>{
-    //     dispatch(deletePost({ postId: post._id}));
-    // };
+    const handleDeleteClick =(postId)=>{
+       
+        dispatch(deletePost(postId));
+        console.log(postId);
+    };
     // const handleToggleLike =(id, userId)=>{
     //     dispatch (toggleLikePost({id:id, userId:user.userId}));
     // };
     return (
         <div className="post">
-           
+        
             <div className="postWrapper">
-              
+            
                 <div className="postTop">
                     <div className="postTopLeft">
                         <img
@@ -57,8 +58,8 @@ function Post({post}) {
                         <span className="postDate">{formatDate(post.createdAt)}</span>
                     </div>
                     <div className="postTopRight">
-                        <span><img src={moreIcon}/></span>
-                       
+                        <span onClick={()=>handleDeleteClick(post._id)}><img src={moreIcon}/></span>
+                    
                     </div>
                 </div>
                 <div className="postCenter">
@@ -75,7 +76,6 @@ function Post({post}) {
                         <span className="postCommentText"> Comments</span>
                         <img src={commentIcon}/>
                     </div>
-                    
                     
                 </div>
             </div>
@@ -115,5 +115,7 @@ function Post({post}) {
     // </PostStyled>
     );
 }
+
+
 
 export default Post;

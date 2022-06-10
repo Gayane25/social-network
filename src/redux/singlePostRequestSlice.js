@@ -83,7 +83,8 @@ const deletePost = createAsyncThunk(
                 "Content-Type": "application/json"
             },
         }
-        ).then((res)=>res.json());
+        );
+        // .then((res)=>res.json());
     }
 );
 
@@ -99,7 +100,7 @@ const singlePostRequestSlice = createSlice({
         },
         [createPost.fulfilled]:(state,action)=>{
             state.status="fulfilled";
-            state.content = action.payload;
+            state.content= action.payload;
         },
         [createPost.rejected]:(state)=>{
             state.status ="failed";
@@ -139,7 +140,7 @@ const singlePostRequestSlice = createSlice({
         },
         [deletePost.fulfilled]:(state,action)=>{
             state.status="success";
-            state.content = null;
+            state.content = action.payload;
         },
         [deletePost.rejected]:(state)=>{
             state.status ="failed";
@@ -151,5 +152,5 @@ const singlePostRequestSlice = createSlice({
 
 
 export default singlePostRequestSlice.reducer;
-export {createPost, updatePost, getSinglePostByID, likePost};
+export {createPost, updatePost, getSinglePostByID, likePost, deletePost};
 
