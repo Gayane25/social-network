@@ -7,7 +7,6 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const cors = require("cors");
 
-const deleteRoute = require("./routes/deleteRouter");
 const postsRoute = require("./routes/postsRouter");
 const authRoute = require("./routes/authRouter");
 const userRoute = require("./routes/userRouter");

@@ -108,8 +108,8 @@ class postsController {
             if (post.owner !== req.user.id) {
                 return res.status(403).json({message: 'You can not delete other user\'s post'})
             }
-            await post.deleteOne()
-            return res.status(200).json({message: 'Post successfully deleted'})
+            const deletedPost = await post.deleteOne()
+            return res.status(200).json(deletedPost)
 
         } catch (err) {
             res.json(err)
