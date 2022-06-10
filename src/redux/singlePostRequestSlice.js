@@ -77,14 +77,13 @@ const deletePost = createAsyncThunk(
     "deletedPost/deleteCurrentPost",
     async(postId)=>{
         return await fetch(`http://localhost:8000/api/posts/${postId}`,{
-            method: "'DELETE",
+            method: "DELETE",
             headers:{
                 "authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
             },
         }
-        );
-        // .then((res)=>res.json());
+        ).then(res => res.json()).then(data => console.log(data));
     }
 );
 
