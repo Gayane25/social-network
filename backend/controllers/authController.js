@@ -46,24 +46,7 @@ class authController {
         }
     }
 
-    // async login(req, res) {
-    //     try {
-    //         const {username, password} = req.body
-    //         const user = await User.findOne({username})
-    //         if (!user) {
-    //             return res.status(400).json({message: `User ${username} not found`})
-    //         }
-    //         const valaidPassword = bcrypt.compareSync(password, user.password)
-    //         if (!valaidPassword) {
-    //             return res.status(400).json({message: 'Password incorrect'})
-    //         }
-    //         const {_id, roles, password: userPass, username: loginedUserName} = user
-    //         const token = generateAccessToken(_id, roles)
-    //         return res.status(200).json({_id, username: loginedUserName, token})
-    //     } catch (err) {
-    //         res.status(400).json({message: 'Login failed'})
-    //     }
-    // }
+
     async login(req, res) {
         try {
             const {username, password} = req.body

@@ -18,7 +18,7 @@ class postsController {
             const pageNumber = req.query._page || 1
             const limit = req.query._limit || 20
             const offset = pageNumber * limit - limit
-            const posts = await Post.find({owner: req.user.id}).skip(offset).limit(limit)
+            const posts = await Post.find({owner: req.user.id}).sort({'_id': -1}).skip(offset).limit(limit)
             res.send(posts)
         } catch (err) {
             return res.json({message: 'Try later...'})
@@ -31,10 +31,9 @@ class postsController {
             const limit = req.query._limit || 20
             const offset = pageNumber * limit - limit
             const currentUser = await User.findById(req.user.id)
-            console.log(currentUser)
             const friendPosts = await Promise.all(
                 currentUser.followings.map(friendId =>{
-                    return Post.find({owner:friendId}).skip(offset).limit(limit)
+                    return Post.find({owner:friendId}).sort({'_id': -1}).skip(offset).limit(limit)
                 })
             )
             res.json({timeline: friendPosts})
@@ -95,7 +94,8 @@ class postsController {
                     }
                 }
             })
-            return res.status(200).json({message: 'Post successfully updated'})
+            const updatedPost = await Post.findById(req.params.postId)
+            return res.status(200).json(updatedPost)
 
         } catch (err) {
             res.json(err)

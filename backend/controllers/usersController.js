@@ -25,8 +25,8 @@ class usersController {
 
     async deleteUser(req, res) {
         try {
-            await User.deleteOne({_id: req.params.userId})
-            return res.status(200).json({message: 'User deleted successfully'})
+            const deletedUser = await User.findOneAndDelete({_id: req.params.userId})
+            return res.status(200).send(deletedUser)
         } catch (err) {
             console.log(err)
             return res.status(403).json({message: "Something went wrong"})
