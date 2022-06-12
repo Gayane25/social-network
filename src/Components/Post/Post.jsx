@@ -28,12 +28,10 @@ function Post({post}) {
     // const [commentsOpen,setCommentsOpen]= useState(false);
     const dispatch = useDispatch();
     const {postId} = useParams();
-    // console.log(postId);
 
     const handleDeleteClick =(postId)=>{
        
         dispatch(deletePost(postId));
-        console.log(postId);
     };
     // const handleToggleLike =(id, userId)=>{
     //     dispatch (toggleLikePost({id:id, userId:user.userId}));
@@ -65,7 +63,7 @@ function Post({post}) {
                 <div className="postCenter">
                     <span className="postText">{post.content.title}</span>
                     <p>{post.content.description}</p>
-                    <img className="postImg" src={post.content.image} alt="" />
+                    <img className="postImg" src={`http://localhost:8000/api/files/${post.content.image}`} alt="" />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">

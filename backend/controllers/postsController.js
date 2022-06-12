@@ -54,6 +54,7 @@ class postsController {
         }
         try {
             const {content_title, content_description, content_image_url} = req.body
+            console.log("content_image_url",content_image_url);
             const post = await new Post({
                 owner: req.user.id,
                 content: {

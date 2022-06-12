@@ -9,7 +9,7 @@ let token = JSON.parse(localStorage.getItem("user")||"{}").token;
 // content_description,
 // content_image_url
 const createPost = createAsyncThunk("posts/createPost",
-    async({content_title, content_description, contentImage})=>{
+    async({content_title, content_description, content_image_url})=>{
 
         const response = await fetch("http://localhost:8000/api/posts", {
             method: "POST",
@@ -20,12 +20,11 @@ const createPost = createAsyncThunk("posts/createPost",
             body: JSON.stringify({
                 content_title,
                 content_description,
-                "content_image_url": "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80"
+                content_image_url,
             })
         });
 
         const data = await response.json();
-        console.log(data);
         return data;
 
     }

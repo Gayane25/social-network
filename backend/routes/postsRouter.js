@@ -7,7 +7,7 @@ const authMiddleware = require('../middlewares/authMiddleware')
 
 
 //Get user's all posts by _page AND _limit
-router.get('/',authMiddleware,postsController.getAllPosts)
+router.get('/',authMiddleware,postsController.getAllPosts);
 
 //Get timeline  posts by _page AND _limit
 router.get('/timeline',authMiddleware,postsController.getTimelinePosts)
