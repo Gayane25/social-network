@@ -84,7 +84,7 @@ available urls -
               GET   headers    - {
                                     authorization: "Bearer <token of user>"
                                  }
-    - for getting picture -  localhost:8000/api/files/:imageName
+    - for getting picture -  http://localhost:8000/api/files/:imageName
     - for uploading an image -  localhost:8000/api/upload
               POST   headers    - {
                                     authorization: "Bearer <token of user>"
